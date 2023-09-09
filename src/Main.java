@@ -12,14 +12,14 @@ public class Main {
                 c.add(i);
             }
         }
-        System.out.println(c);
+        System.out.println("Массив с: " + c);
 
         //2. Создать одномерный массив x типа float. Заполнить его 10-ю случайными числами в диапазоне от -6.0 до 14.0.
         float[] x = new float[10];
         for (int i = 0; i < 10; i++) {
             x[i] = floatGen(-6.0, 14.0);
         }
-        System.out.println(Arrays.toString(x));
+        System.out.println("Массив х: " + Arrays.toString(x));
 
         //3. Создать двумерный массив c размером 9x10. Вычислить его элементы по следующей формуле (где x = x[j])
         double[][] c2 = new double[9][10];
@@ -41,6 +41,7 @@ public class Main {
         }
 
         //4. Напечатать полученный в результате массив в формате с двумя знаками после запятой.
+        System.out.println("двумерный массив c2:".toUpperCase());
         for (var i : c2) {
             for (var element : i) {
                 System.out.print(Math.round(element * 100.0) / 100.0 + ",");
