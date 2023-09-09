@@ -12,11 +12,9 @@ public class Main {
                 c.add(i);
             }
         }
-
         System.out.println(c);
 
         //2. Создать одномерный массив x типа float. Заполнить его 10-ю случайными числами в диапазоне от -6.0 до 14.0.
-
         float[] x = new float[10];
         for (int i = 0; i < 10; i++) {
             x[i] = floatGen(-6.0, 14.0);
@@ -24,7 +22,6 @@ public class Main {
         System.out.println(Arrays.toString(x));
 
         //3. Создать двумерный массив c размером 9x10. Вычислить его элементы по следующей формуле (где x = x[j])
-
         double[][] c2 = new double[9][10];
         System.out.println();
         for (int i = 0; i < 9; i++) {
@@ -43,7 +40,6 @@ public class Main {
             }
         }
 
-
         //4. Напечатать полученный в результате массив в формате с двумя знаками после запятой.
         for (var i : c2) {
             for (var element : i) {
@@ -51,40 +47,28 @@ public class Main {
             }
             System.out.println();
         }
-
-
     }
-
     public static float floatGen(double min, double max) {
+        //this is the class to generate random floats
         if (min > max) {
             throw new IllegalArgumentException("Invalid range [" + min + ", " + max + "]");
         }
         Random r = new Random();
         return (float) (min + r.nextFloat() * (max - min));
     }
-
     public static double calcJ(float x) {
         double cosX = 2 / Math.cos(Math.toRadians(x));
         double power = Math.pow(Math.cbrt(x), cosX);
         return power;
     }
-
     public static double calcJ2(float x) {
         double part1 = (Math.pow(x, (0.25 / (x + 1)))) - 1;
-
         double part2 = Math.atan(((double) (x + 4) / 2) * Math.E) + 1;
-
         double part3 = Math.log(Math.abs(x));
-
         return Math.sin(Math.pow(part3, (part1 * part2)));
     }
-
-
     public static double calcJ3(float x) {
-
         double part1 = 1 / (Math.exp(Math.abs(x)));
-
         return Math.cbrt(Math.log(Math.acos(part1)));
-
     }
 }
