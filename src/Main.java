@@ -49,7 +49,7 @@ public class Main {
         }
     }
     public static float floatGen(double min, double max) {
-        //this is the class to generate random floats
+        //this class generates random floats
         if (min > max) {
             throw new IllegalArgumentException("Invalid range [" + min + ", " + max + "]");
         }
