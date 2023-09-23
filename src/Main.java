@@ -5,14 +5,19 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         // 1. Создать одномерный массив c типа int. Заполнить его чётными числами от 2 до 18 включительно в порядке убывания.
-        ArrayList<Integer> c = new ArrayList<>();
+        int[] c = new int[9];
         int count = 0;
         for (int i = 18; i >= 2; i--) {
             if (i % 2 == 0) {
-                c.add(i);
+                c[count] = i;
+                count++;
             }
         }
-        System.out.println("Массив с: " + c);
+        System.out.print("Массив с: ");
+        for (int i : c) {
+            System.out.print(i + ", ");
+        }
+        System.out.println();
 
         //2. Создать одномерный массив x типа float. Заполнить его 10-ю случайными числами в диапазоне от -6.0 до 14.0.
         float[] x = new float[10];
@@ -25,11 +30,11 @@ public class Main {
         double[][] c2 = new double[9][10];
         System.out.println();
         for (int i = 0; i < 9; i++) {
-            if (c.get(i) == 8) {
+            if (c[i] == 8) {
                 for (int j = 0; j < 10; j++) {
                     c2[i][j] = calcJ(x[j]);
                 }
-            } else if (c.get(i) == 2 || c.get(i) == 10 || c.get(i) == 14 || c.get(i) == 18) {
+            } else if (c[i] == 2 || c[i] == 10 || c[i] == 14 || c[i] == 18) {
                 for (int j = 0; j < c2[i].length; j++) {
                     c2[i][j] = calcJ2(x[j]);
                 }
@@ -44,7 +49,7 @@ public class Main {
         System.out.println("двумерный массив c2:".toUpperCase());
         for (var i : c2) {
             for (var element : i) {
-                System.out.print(Math.round(element * 100.0) / 100.0 + ",");
+                System.out.printf("%8.2f", element);
             }
             System.out.println();
         }
@@ -60,7 +65,7 @@ public class Main {
     public static double calcJ(float x) {
         double cosX = 2 / Math.cos(Math.toRadians(x));
         double power = Math.pow(Math.cbrt(x), cosX);
-        return power;
+        return Math.log(Math.pow(Math.E, power));
     }
     public static double calcJ2(float x) {
         double part1 = (Math.pow(x, (0.25 / (x + 1)))) - 1;
